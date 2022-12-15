@@ -10,6 +10,10 @@ public class PDA
 {
     private Scanner scanner = new Scanner(System.in);
     private int age;
+    private int LOWER_BOUND = 14;
+    private double dateableYoung;
+    private int dateable;
+    private int dateableAge;
 
     /**
      * Constructor for objects of class PDA
@@ -28,12 +32,26 @@ public class PDA
             System.out.println("How old are you?");
             try {
                 age = scanner.nextInt();
-                System.out.println(age);
+                if (age < LOWER_BOUND) {
+                    System.out.println(age+" is too young!!");
+                } else {
+                    getYoungerAge();
+                    dateableAge = dateable;
+                    System.out.println(dateableAge);
+                }
             } catch (InputMismatchException error) {
                 System.out.println("Please enter an integer");
                 scanner.next();
             }
+            
         }
+    }
+    
+    public int getYoungerAge(int yourAge) {
+        this.age = age;
+        dateableYoung = age / 2 + 7;
+        dateable = Math.ceil(dateableYoung);
+        return dateable;
     }
 
     /**
