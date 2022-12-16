@@ -11,7 +11,7 @@ public class PDA
     private Scanner scanner = new Scanner(System.in);
     private int age;
     private int LOWER_BOUND = 14;
-    private int UPPER_BOUND = 120;
+    private int UPPER_BOUND = 130;
     private double dateableYoung;
     private double dateable;
     private double dateableOld;
