@@ -43,7 +43,7 @@ public class PDA
                     dateable = age;
                     dateable = dateable / 2 + 7;
                     dateable = Math.ceil(dateable);
-                    System.out.println(dateable);
+                    System.out.println("Your minimum dating age is: "+dateable);
                 }
             } catch (InputMismatchException error) {
                 System.out.println("Please enter an integer");
