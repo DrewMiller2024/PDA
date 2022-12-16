@@ -12,8 +12,8 @@ public class PDA
     private int age;
     private int LOWER_BOUND = 14;
     private double dateableYoung;
-    private int dateable;
-    private int dateableAge;
+    private double dateable;
+    private boolean loop;
 
     /**
      * Constructor for objects of class PDA
@@ -28,16 +28,22 @@ public class PDA
      * This is the main event loop for our PDA program
      */
     public void runEventLoop() {
-        while (true) {
+        loop = true;
+        System.out.println("Note: enter 0 to quit the program");
+        while (loop) {
             System.out.println("How old are you?");
             try {
                 age = scanner.nextInt();
+                if (age == 0) {
+                    loop = false;
+                } else
                 if (age < LOWER_BOUND) {
                     System.out.println(age+" is too young!!");
                 } else {
-                    getYoungerAge();
-                    dateableAge = dateable;
-                    System.out.println(dateableAge);
+                    dateable = age;
+                    dateable = dateable / 2 + 7;
+                    dateable = Math.ceil(dateable);
+                    System.out.println(dateable);
                 }
             } catch (InputMismatchException error) {
                 System.out.println("Please enter an integer");
@@ -47,10 +53,10 @@ public class PDA
         }
     }
     
-    public int getYoungerAge(int yourAge) {
-        this.age = age;
-        dateableYoung = age / 2 + 7;
-        dateable = Math.ceil(dateableYoung);
+    public double getYoungerAge(int yourAge) {
+        dateable = yourAge;
+        dateable = dateable / 2 + 7;
+        dateable = Math.ceil(dateable);
         return dateable;
     }
 
